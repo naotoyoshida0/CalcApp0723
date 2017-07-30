@@ -20,7 +20,7 @@ public class secondActivity extends AppCompatActivity {
         Intent intent =getIntent();                            //インテントのオブジェクト取得
         Double TOTAL = intent.getDoubleExtra("TOTAL", 0.0);       //遷移データをTOTALという値かつ初期値０で取得
         TextView textview = (TextView) findViewById(R.id.textView);
-        textView.setText(String.valueOf(TOTAL));
+        textview.setText(String.valueOf(TOTAL));
 
         }
     }
