@@ -6,8 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-
+import android.widget.Toast;
 
 
 public class MainActivity  extends AppCompatActivity implements View.OnClickListener  {
@@ -50,20 +49,33 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         Intent intent = new Intent(this, secondActivity.class);            //遷移先を指定
         Double total = 0.0;
-        Double num1 = Double.parseDouble(EditText1.getText().toString()); // EditText1の入力を小数値に変換
-        Double num2 = Double.parseDouble(EditText2.getText().toString()); // EditText2の入力を小数値に変換
+        String str1 = EditText1.getText().toString();
+        String str2 = EditText2.getText().toString();
+
+        if (str1.equals("")){
+            Toast.makeText(this, "数字が未入力です", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (str2.equals("")){
+            Toast.makeText(this, "数字が未入力です", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Double num1 = Double.parseDouble(str1); // EditText1の入力を小数値に変換
+        Double num2 = Double.parseDouble(str2); // EditText2の入力を小数値に変換
         if (v.getId() ==R.id.button1) {                                  //button1を押した時num1+num2をtotalに代入
             total = num1 + num2;
         }
-        if (v.getId() ==R.id.button2) {
+        else if (v.getId() ==R.id.button2) {
             total = num1 - num2;
         }
-        if (v.getId() ==R.id.button3) {
+        else if (v.getId() ==R.id.button3) {
             total = num1 / num2;
         }
-        if (v.getId() ==R.id.button4) {
+        else if (v.getId() ==R.id.button4) {
             total = num1 * num2;
         }
+
         intent.putExtra("TOTAL", total);                           //TOTALを遷移
         startActivity(intent);                                            //開始
 

@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import static jp.techacademy.yoshida.naoto.calcapp2.R.id.textView;
+
 
 
 public class secondActivity extends AppCompatActivity {
